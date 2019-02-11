@@ -97,3 +97,13 @@ reboot
 Il est possible de modifier les informations affichées sur l'écran en éditant les fichiers suivants : 
 *  l'écran de démarrage : `oled-screen/boot.py`
 *  l'écran affichant les informations de connexion : `oled-screen/infos.py`
+
+## 7 - Un petit mot sur hostapd et le WPA2
+
+Nous utilisons hostapd pour créer un point d'accès Wifi. WPA2 est utilisé pour protéger l'accès à ce point d'accès.
+
+**certaines clés Wifi (dongle) ne supportent pas WPA2 en mode point d'accès**. Si vous n'arrivez pas à vous connecter à votre point d'accès PiRogue avec le bon mot de passe, votre clé Wifi n'est peut être pas supportée.
+
+Nous avons testé le matériel suivant avec succès :
+
+* TP-Link WN722N v1
