@@ -96,3 +96,28 @@ reboot
 PiRogue has a tiny OLED screen on top of it. This screen displays two different screens:
 *  the boot screen defined in `oled-screen/boot.py`
 *  the details screen defined in `oled-screen/infos.py`
+
+## 7 - A little note about hostapd and WPA2
+
+We use hostapd to create a new Wifi Access Point. This access point is protected using WPA2.
+
+**some Wifi dongle does not support WPA2 when acting as an access point**. If you cannot connect to the PiRogue access point with the correct passphrase your Wifi dongle may not be supported.
+
+We have successfully tested with:
+
+* TP-Link WN722N v1
+
+If you want to have an open access point, edit file */usr/share/PiRogue/hostapd/hostapd.conf* and change its content with:
+
+```
+driver=nl80211
+ssid=PiRogue
+channel=6
+auth_algs=3
+```
+
+Then, restart hostapd service:
+
+```bash
+sudo systemctl restart hostapd
+```
