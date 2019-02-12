@@ -107,3 +107,19 @@ Nous utilisons hostapd pour créer un point d'accès Wifi. WPA2 est utilisé pou
 Nous avons testé le matériel suivant avec succès :
 
 * TP-Link WN722N v1
+
+Si vous préférez un point d'accès ouvert, éditez le fichier */usr/share/PiRogue/hostapd/hostapd.conf* et changez son contenu pour le suivant :
+
+```
+driver=nl80211
+ssid=PiRogue
+channel=6
+auth_algs=3
+```
+
+Puis, redémarrez hostapd :
+
+```bash
+sudo systemctl restart hostapd
+```
+

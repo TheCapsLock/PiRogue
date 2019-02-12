@@ -106,3 +106,18 @@ We use hostapd to create a new Wifi Access Point. This access point is protected
 We have successfully tested with:
 
 * TP-Link WN722N v1
+
+If you want to have an open access point, edit file */usr/share/PiRogue/hostapd/hostapd.conf* and change its content with:
+
+```
+driver=nl80211
+ssid=PiRogue
+channel=6
+auth_algs=3
+```
+
+Then, restart hostapd service:
+
+```bash
+sudo systemctl restart hostapd
+```
